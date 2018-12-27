@@ -1,0 +1,13 @@
+.container {
+  max-width: 1399px;
+  min-width: 1100px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow-y: auto;
+  font-size: 14px;
+  color: $_text_dark;
+  &.full-screen {
+    max-width: 100%;
+  }
+}

@@ -1,23 +1,24 @@
 const path = require('path')
-const webpack = require('webpack')
+const HappyPack = require('happypack')
+const os = require('os')
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-console.log(path.resolve(__dirname, 'dist'))
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
+
+console.log(path.resolve(__dirname, '../dist'))
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js[x]?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: [ 'happypack/loader?id=js' ]
       },
       {
         test: /\.html$/,
@@ -30,23 +31,41 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader"
-        ]
+        exclude: /node_modules/,
+        loader: [ 'happypack/loader?id=sass' ]
       }
     ]
   },
   resolve: {
     alias: {
-      '@/components': path.resolve(__dirname, './src/components'),
-      '@/scss': path.resolve(__dirname, './src/scss'),
-      '@/lib': path.resolve(__dirname, './src/lib')
+      '@/components': path.resolve(__dirname, '../src/components'),
+      '@/scss': path.resolve(__dirname, '../src/scss'),
+      '@/lib': path.resolve(__dirname, '../src/lib'),
+      '@/utils': path.resolve(__dirname, '../src/utils'),
     },
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    //js 编译多线程 
+    new HappyPack({
+      id: 'js',
+      threadPool: happyThreadPool,
+      loaders: [{
+          loader: 'babel-loader',
+          options: {
+              presets: [ 'env','react'],
+              plugins: ['syntax-dynamic-import','transform-object-rest-spread']
+          }
+      }],
+    }),
+    // sass 编译多线程
+    new HappyPack({
+      id: 'sass',
+      threadPool: happyThreadPool,
+      loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+    }),
+    new CleanWebpackPlugin(['dist'],{
+      root: path.join(__dirname, '../')
+    }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"

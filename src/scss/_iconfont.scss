@@ -1,0 +1,49 @@
+
+@font-face {
+  font-family: 'diao';  /* project id 977343 */
+  src: url('//at.alicdn.com/t/font_977343_4x64udx0g5d.eot');
+  src: url('//at.alicdn.com/t/font_977343_4x64udx0g5d.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_977343_4x64udx0g5d.woff') format('woff'),
+  url('//at.alicdn.com/t/font_977343_4x64udx0g5d.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_977343_4x64udx0g5d.svg#diao') format('svg');
+}
+
+[class*="diao-"] {
+  font-family:"diao" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.diao-search:before { content: "\e65c"; }
+
+.diao-top:before { content: "\e69e"; }
+
+.diao-my:before { content: "\e78b"; }
+
+.diao-myfill:before { content: "\e78c"; }
+
+.diao-home:before { content: "\e7a3"; }
+
+.diao-classify-active:before { content: "\e7f8"; }
+
+.diao-classify:before { content: "\e7f9"; }
+
+.diao-home1:before { content: "\e605"; }
+
+.diao-label:before { content: "\e629"; }
+
+.diao-newshotfill:before { content: "\e7c4"; }
+
+.diao-newshot:before { content: "\e7c5"; }
+
+.diao-weixin:before { content: "\e600"; }
+
+.diao-pigeonhole-active:before { content: "\e666"; }
+
+.diao-label-active:before { content: "\e78f"; }
+
+.diao-pigeonhole:before { content: "\e820"; }
+
+.diao-github:before { content: "\e763"; }

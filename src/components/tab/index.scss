@@ -1,0 +1,22 @@
+@import '@/scss/_variables.scss';
+.tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.tab {
+  flex: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $_text_dark;
+  border-bottom: 2px solid $_text_dark;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom-color: $c_highlight;
+    color: $c_highlight
+  }
+}

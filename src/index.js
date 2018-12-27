@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import FormContainer from "./components/container/FormContainer.js";
-import style from './scss/main.scss'
+import React, { Component } from "react"
+import ReactDOM from "react-dom"
+import App from "./app"
+import '@/scss/main.scss'
 
-ReactDOM.render(<FormContainer />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"))
