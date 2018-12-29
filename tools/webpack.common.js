@@ -8,7 +8,12 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 console.log(path.resolve(__dirname, '../dist'))
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main:[
+        'babel-polyfill',
+        path.resolve(__dirname, '../src/index.js')
+    ]
+  },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].js'
@@ -39,6 +44,8 @@ module.exports = {
   resolve: {
     alias: {
       '@/components': path.resolve(__dirname, '../src/components'),
+      '@/page': path.resolve(__dirname, '../src/page'),
+      '@/route': path.resolve(__dirname, '../src/route'),
       '@/scss': path.resolve(__dirname, '../src/scss'),
       '@/lib': path.resolve(__dirname, '../src/lib'),
       '@/utils': path.resolve(__dirname, '../src/utils'),

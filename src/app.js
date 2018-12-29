@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
-import { Router, Route } from 'react-router'
 import Header from '@/components/header'
-import Tab from '@/components/tab'
-
+import TabBar from '@/components/tabBar'
+import Route from '@/route'
 import '@/scss/main.scss'
 
 
-
 class App extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
   render() {
     return (
       <div className="container">
+      <header>
         <Header />
-        <Tab />
+        <div className="tab-bar">
+          <TabBar />
+        </div>
+      </header>
+      <main>
+        <Route />
+      </main>
       </div>
     )
   }

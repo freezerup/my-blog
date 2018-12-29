@@ -33,12 +33,12 @@ class Header extends Component {
         <div className="input-box">
           <input
             value={this.state.searchKey} 
-            onChange={this.handleChangeKey}
-            onKeyUp={this.handleEnterKey}
+            onChange={this.handleChangeKey.bind(this)}
+            onKeyUp={this.handleEnterKey.bind(this)}
             placeholder="快速查询" 
             className="input"  
             type="text" />
-          <label onClick={this.handleSearch} className="icon diao-search"></label>
+          <label onClick={this.handleSearch.bind(this)} className="icon diao-search"></label>
         </div>
       </div>
     )

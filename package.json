@@ -4,8 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --open --config ./tools/webpack.dev.js",
-    "build": "webpack --config ./tools/webpack.prod.js"
+    "dev": "node ./tools/build.js dev",
+    "build": "node ./tools/build.js prod",
+    "help": "node ./tools/build.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
+    "open-browser-webpack-plugin": "^0.0.5",
     "clean-webpack-plugin": "^1.0.0",
     "webpack-merge": "^4.1.5",
     "uglifyjs-webpack-plugin": "^2.1.0",
@@ -41,6 +43,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-loadable": "^5.5.0"
   }
 }
